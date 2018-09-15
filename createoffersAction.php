@@ -1,13 +1,13 @@
 <?php 
-if(isset($_POST['submit']))
+if(isset($_POST['Submit']))
 {
 	include 'conn.php';
-	$selectbusiness = $_POST['selectbusiness'];
+	//$selectbusiness = $_POST['selectbusiness'];
 	$offername = $_POST['offername'];
-	$percentage = $_POST['percentage'];
+	$description = $_POST['description'];
 	$startdate = $_POST['startdate'];
 	$enddate = $_POST['enddate'];
-	$description = $_POST['description'];
+	$discount = $_POST['discount'];
 	// $type = $_POST['userType'];
 	// if($type=='for Event Booking')
 	// 	$userType = 'User';
@@ -15,17 +15,17 @@ if(isset($_POST['submit']))
 	// 	$userType = 'Admin';
 	// else
 	// 	$userType='dummy';
-	$insert = mysqli_query($conn, "INSERT INTO `creatoffers`(selectbusiness, offername, percentage, startdate, enddate, description) VALUES('$selectbusiness', '$offername', '$percentage','$startdate', '$enddate', '$description')");
+	$insert = mysqli_query($conn, "INSERT INTO `offers`(oname, description, sdate, edate, poff) VALUES('$offername', '$description', '$startdate', '$enddate', '$discount')");
 	
 	if($insert)
 	{
 		$_SESSION['msg'] = 'Offer Created';
-		 header("location:createoffer.php");
+		 header("location:dashboard.php");
 	}
 	else
 	{
 		$_SESSION['msg'] = 'Error in Sign Up due to reason > '.mysqli_error($conn);
-		 header("location:index.php");
+		 header("location:createoffer.php");
 	}
 
 }

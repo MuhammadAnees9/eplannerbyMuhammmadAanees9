@@ -1,15 +1,18 @@
 <?php 
-if(isset($_POST['createbusiness']))
+if(isset($_POST['Submit']))
 {
 	include 'conn.php';
-	$bname = $_POST['bname'];
-	$city = $_POST['city'];
-	$area = $_POST['area'];
-	$location = $_POST['location'];
+	$name = $_POST['bname'];
+	$city = $_POST['bcity'];
+	$area = $_POST['barea'];
+	$location = $_POST['blocation'];
+	$contact = $_POST['bcontact'];
+	$charges = $_POST['bfee'];
+	$description = $_POST['bdescription'];
 	$opendays = $_POST['opendays'];
-	$services = $_POST['services'];
-	$bcharges = $_POST['bcharges'];
-	$bcontact = $_POST['bcontact'];
+	$status = $_POST['bstatus'];
+	$paid = $_POST['bpaid'];
+	//$image = $_POST['bimage'];
 	// $type = $_POST['userType'];
 	// if($type=='for Event Booking')
 	// 	$userType = 'User';
@@ -17,17 +20,17 @@ if(isset($_POST['createbusiness']))
 	// 	$userType = 'Admin';
 	// else
 	// 	$userType='dummy';
-	$insert = mysqli_query($conn, "INSERT INTO `createbusiness`(bname, city, area, location, opendays, services, bcharges, bcontact) VALUES('$bname', '$city', '$area','$location', '$opendays', '$services', '$bcharges', '$bcontact')");
+	$insert = mysqli_query($conn, "INSERT INTO `business`(bname, bcity, barea, blocation, bcontact, bookingFee, bdesc, openDays, bstatus , Paid ) VALUES('$name', '$city', '$area','$location', '$contact', '$charges', '$description', '$opendays', '$status', 'paid')");
 	
 	if($insert)
 	{
 		$_SESSION['msg'] = 'Business Created';
-		 header("location:index.php");
+		 header("location:dashboard.php");
 	}
 	else
 	{
 		$_SESSION['msg'] = 'Error in Sign Up due to reason > '.mysqli_error($conn);
-		 header("location:createbusiness.html");
+		 header("location:createbusiness.php");
 	}
 
 }

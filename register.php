@@ -1,5 +1,3 @@
-<?php include('server.php'); ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,26 +17,18 @@
     <link href="css/sb-admin.css" rel="stylesheet">
   </head>
   <body id="page-top">
-        <div id="content-wrapper">
-        <div class="container-fluid">
+    <div id="content-wrapper">
+      <div class="container-fluid">
       <div class="card card-login mx-auto mt-5">
         <div class="card-header"><h5 style="text-align: center;">Signup</h5></div>
         <div class="card-body">
-          <form method="POST" action="register.php">
+          <form method="POST" action="sigupAction.php">
           	<!-- disply validation errors here -->
-          	<?php include('errors.php'); ?>
             <div class="form-group">
               <h5>Name:</h5>
               <div class="form-label-group">
                 <input type="text" id="inputName" class="form-control" placeholder="Name" name="fname" required="required" autofocus="autofocus">
                 <label for="inputName">Name</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <h5>Cell:</h5>
-              <div class="form-label-group">
-                <input type="text" id="inputContact" class="form-control" placeholder="Contact" name="contact" required="required" autofocus="autofocus">
-                <label for="inputContact">Cell</label>
               </div>
             </div>
             <div class="form-group">
@@ -55,21 +45,29 @@
                 <label for="inputPassword">Password</label>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-block" name="register" href="signin.php">Signup</button>
+            <div class="form-group">
+              <h5>Cell:</h5>
+              <div class="form-label-group">
+                <input type="text" id="inputContact" class="form-control" placeholder="Contact" name="contact" required="required" autofocus="autofocus">
+                <label for="inputContact">Cell</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <h5>Select Type:</h5>
+              <div class="form-label-group">
+                <select type="text" id="selectType" class="form-control" name="type" autofocus="autofocus">
+                  <option>for Event Booking</option>
+                  <option>as a Business Partner</option>
+              </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" name="signup">Signup</button>
             <p>
             	Already a member?<a href="login.php">Signin</a>
             </p>
           </form>
         </div>
       </div>
-        <!-- Sticky Footer -->
-        <!-- <footer class="sticky-footer">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright ©  assort tech Your Website 2018</span>
-            </div>
-          </div>
-        </footer> -->
       </div>
       <!-- /.content-wrapper -->
     </div>

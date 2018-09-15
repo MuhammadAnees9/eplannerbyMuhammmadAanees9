@@ -1,4 +1,4 @@
-<?php
+<?php 
 session_start();
 ?>
 
@@ -10,13 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title> Welcome || My Business </title>
-    <style>
-        table,th,tr,td
-        {
-            border: 5px solid black;
-        }
-    </style>
+    <title> Welcome || Create Business </title>
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template-->
@@ -27,13 +21,14 @@ session_start();
     <link href="css/sb-admin.css" rel="stylesheet">
   </head>
   <body id="page-top">
-    <!-- Header.php -->
+     <!-- Header.php -->
     <?php include 'header.php'; ?>
-    <!-- mybusinessSidebar -->
-     <?php include 'mybusinesssidebar.php'; ?>
-     <!--End mybusinesssidebar -->
     <!-- logoutmodel -->
     <?php include 'logoutmodel.php'; ?>
+    <!-- mybusinesssidebar.php -->
+    <?php include 'businesssidebar.php'; ?>
+    <!-- stickyfooter.php -->
+    <?php include 'stickyfooter.php'; ?>
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
@@ -56,5 +51,6 @@ session_start();
     <!-- Demo scripts for this page-->
     <script src="js/demo/datatables-demo.js"></script>
     <script src="js/demo/chart-area-demo.js"></script>
+</div>
   </body>
 </html>

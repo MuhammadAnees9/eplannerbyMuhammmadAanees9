@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SB Admin - Update</title>
+    <title>SB Admin - Register</title>
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template-->
@@ -19,20 +19,14 @@
       <div class="card card-register mx-auto mt-5">
         <div class="card-header">Register an Account</div>
         <div class="card-body">
-          <form method="POST" action="updateAction.php">
+          <form method="POST" action="signupAction.php">
             <div class="form-group">
               <div class="form-group">
               <div class="form-label-group">
-                <input type="text" id="inputEmail" class="form-control" placeholder="ID" name="id" required="required"  autofocus="autofocus">
-                <label for="inputID">Input ID</label>
-              </div>
-            </div>
-              <div class="form-group">
-              <div class="form-label-group">
-                <select type="select" id="selectType" class="form-control" name="type">
-                  <option>Admin</option>
-                  <option>User</option>
-                  <option>Business</option>
+                <select type="select" id="selectType" class="form-control" name="type" autofocus="autofocus">
+                  <option>For Admin</option>
+                  <option>For User</option>
+                  <option>For Business</option>
               </select>
               </div>
             </div>
@@ -73,12 +67,15 @@
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-block" name="update">Update</button> 
+            <button type="submit" class="btn btn-primary btn-block" name="register">Register</button> 
           </form>
-          <!-- <div class="text-center">
+          <div class="text-center">
             <a class="d-block small mt-3" href="login.html">Login Page</a>
             <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
-          </div> -->
+          </div>
+          <div class="text-center">
+            <a class="d-block small mt-3" href="deleteupdateoffers.php">Update & Delete</a>
+          </div>
         </div>
       </div>
     </div>

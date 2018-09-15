@@ -10,9 +10,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title> Welcome || My Business </title>
-    <style>
-        table,th,tr,td
+    <title> Welcome || My Offers </title>
+     <style>
+        table,tr,th,td
         {
             border: 5px solid black;
         }
@@ -29,11 +29,16 @@ session_start();
   <body id="page-top">
     <!-- Header.php -->
     <?php include 'header.php'; ?>
-    <!-- mybusinessSidebar -->
-     <?php include 'mybusinesssidebar.php'; ?>
-     <!--End mybusinesssidebar -->
+    <!-- /End Header.php -->
+
+    <!-- createofferssidebar.php -->
+    <?php include 'myofferssidebar.php' ?>
+    <!-- /End createofferssidebar.php -->
+    
     <!-- logoutmodel -->
     <?php include 'logoutmodel.php'; ?>
+    <!-- /End logoutmodel -->
+
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>

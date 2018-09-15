@@ -1,11 +1,13 @@
 <?php 
-if(isset($_POST['signup']))
+if(isset($_POST['register']))
 {
 	include 'conn.php';
-	$fullName = $_POST['username'];
-	$contact = $_POST['contact'];
+	$type = $_POST['type'];
+	$firstName = $_POST['fname'];
+	$lastName = $_POST['lname'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
+	$confirmpassword = $_POST['cpassword'];
 	// $type = $_POST['userType'];
 	// if($type=='for Event Booking')
 	// 	$userType = 'User';
@@ -13,16 +15,21 @@ if(isset($_POST['signup']))
 	// 	$userType = 'Admin';
 	// else
 	// 	$userType='dummy';
-	$insert = mysqli_query($conn, "INSERT INTO `userss`(username,contact, email, password) VALUES('$fullName', '$contact','$email', '$password')");
+	if ($password != $confirmpassword) {
+echo("Error... Passwords do not Match");
+exit;
+}
+	$insert = mysqli_query($conn, "INSERT INTO `user`(type, fname, lname, email, password, cpassword) VALUES('$type', '$firstName', '$lastName','$email', '$password', '$confirmpassword')");
+	
 	if($insert)
 	{
 		$_SESSION['msg'] = 'Sign Up Successfully';
-		header("location:login.html");
+		header("location:login.php");
 	}
 	else
 	{
 		$_SESSION['msg'] = 'Error in Sign Up due to reason > '.mysqli_error($conn);
-		header("location:signup.html");
+		header("location:register.php");
 	}
 
 }
