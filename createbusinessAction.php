@@ -1,37 +1,42 @@
 <?php 
-if(isset($_POST['Submit']))
+session_start();
+if(isset($_POST['addBusiness']))
 {
 	include 'conn.php';
-	$name = $_POST['bname'];
-	$city = $_POST['bcity'];
-	$area = $_POST['barea'];
-	$location = $_POST['blocation'];
-	$contact = $_POST['bcontact'];
-	$charges = $_POST['bfee'];
-	$description = $_POST['bdescription'];
-	$opendays = $_POST['opendays'];
-	$status = $_POST['bstatus'];
-	$paid = $_POST['bpaid'];
-	//$image = $_POST['bimage'];
-	// $type = $_POST['userType'];
-	// if($type=='for Event Booking')
-	// 	$userType = 'User';
-	// else if($type=='as a Business Partner')
-	// 	$userType = 'Admin';
-	// else
-	// 	$userType='dummy';
-	$insert = mysqli_query($conn, "INSERT INTO `business`(bname, bcity, barea, blocation, bcontact, bookingFee, bdesc, openDays, bstatus , Paid ) VALUES('$name', '$city', '$area','$location', '$contact', '$charges', '$description', '$opendays', '$status', 'paid')");
-	
-	if($insert)
-	{
-		$_SESSION['msg'] = 'Business Created';
-		 header("location:dashboard.php");
-	}
-	else
-	{
-		$_SESSION['msg'] = 'Error in Sign Up due to reason > '.mysqli_error($conn);
-		 header("location:createbusiness.php");
+	echo $uid = $_SESSION['users']['id'];
+	echo $bname = $_POST['bname'];
+	echo $bcity = $_POST['bcity'];
+	echo $barea = $_POST['barea'];
+	echo $blocation = $_POST['blocation'];
+	echo $bookingFee = $_POST['bookingFee'];
+	echo $bcontact = $_POST['bcontact'];
+	echo $bdescription = $_POST['bdescription'];
+	echo $opdays = $_POST['opdays'];
+	$insert1 = mysqli_query($conn, "INSERT INTO `business`(bname, bcity, barea, blocation, bcontact, bookingFee, ownerId, openDays) VALUES('$bname','$bcity', '$barea', '$blocation', '$bcontact', '$bookingFee', '$uid', '$opdays')");
+	$bid = mysqli_insert_id($conn);
+	// inserting services
+	if($insert1){
+		foreach($_POST['services'] as $service){
+		$insert2 = mysqli_query($conn, "INSERT INTO `services`(sname, bid) VALUES('$service', '$bid')");
 	}
 
+	// uploading images and inserting into db.
+
+	foreach($_FILES['bimages']['name'] as $key=>$name){
+		if(move_uploaded_file($_FILES['bimages']['tmp_name'][$key], "images/business/".$_FILES['bimages']['name'][$key]))
+			{
+				$iname = $_FILES['bimages']['name'][$key];
+				$ins = mysqli_query($conn, "INSERT INTO `images`(iname, bid) VALUES('$iname', '$bid')");
+				
+			}
+	}
+	$noti = 'New Business for '.$bname.' is Added. Waiting for Approval';
+	$qn = mysqli_query($conn, "INSERT INTO `notifications`(type, description, uid) VALUES('Admin', '$noti', '$uid')");
+$_SESSION['msg'] = 'Business Added Successfully';
+	header("location: luck.php");
+	}
+	else
+		die(mysqli_error($conn));
+	
 }
 ?>

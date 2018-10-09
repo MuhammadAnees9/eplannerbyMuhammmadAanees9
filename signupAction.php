@@ -1,26 +1,20 @@
 <?php 
-if(isset($_POST['register']))
+if(isset($_POST['signup']))
 {
 	include 'conn.php';
-	$type = $_POST['type'];
-	$firstName = $_POST['fname'];
-	$lastName = $_POST['lname'];
+	$fullName = $_POST['fname'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	$confirmpassword = $_POST['cpassword'];
-	// $type = $_POST['userType'];
-	// if($type=='for Event Booking')
-	// 	$userType = 'User';
-	// else if($type=='as a Business Partner')
-	// 	$userType = 'Admin';
-	// else
-	// 	$userType='dummy';
-	if ($password != $confirmpassword) {
-echo("Error... Passwords do not Match");
-exit;
-}
-	$insert = mysqli_query($conn, "INSERT INTO `user`(type, fname, lname, email, password, cpassword) VALUES('$type', '$firstName', '$lastName','$email', '$password', '$confirmpassword')");
-	
+	$contact = $_POST['contact'];
+	$selectType = $_POST['type'];
+	if(	$selectType=='As Admin')
+	 	$userType = 'Admin';
+	else if($selectType=='As Business')
+	 	$userType = 'Business';
+	else if($selectType=='As User')
+	 	$userType = 'User';
+	// $userType='dummy';
+	$insert = mysqli_query($conn, "INSERT INTO `users`(fullName, email, password, contact, userType) VALUES('$fullName', '$email', '$password', '$contact', '$userType')");
 	if($insert)
 	{
 		$_SESSION['msg'] = 'Sign Up Successfully';

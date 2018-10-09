@@ -1,0 +1,32 @@
+.position{
+	position: absolute;
+	float: left;
+	text-align: left;
+	top: -380px;
+}
+#profileimg{
+	height: 20px;
+	width: 60px;
+}
+.footer{
+	background-color: #555;
+	color: #ffffff;
+	margin-top: 20px;
+	height: 80px;
+}
+
+#footerbutton{
+	float: right;
+	margin-top: -23px;
+}
+
+#profileimg{
+	  height: 100px;
+	  width: 100px;" 
+}
+
+#sidebar{
+	background-color: #242424;
+	min-height: 610px;
+	margin-top: -22px;
+}

@@ -1,3 +1,4 @@
+
 <div id="wrapper">
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
@@ -12,6 +13,11 @@
         </li>
             <a class="nav-link" href="">
               <h5>Admin:- </h5>
+               <li class="nav-item">
+          <a class="nav-link" href="userprofile.php">
+            <i class="fas fa-user-circle fa-fw"></i>
+            <span>My Profile </span></a>
+        </li>
             </a>
         <li class="nav-item">
           <a class="nav-link" href="">
@@ -53,7 +59,7 @@
             <span>My Profile </span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="mybookings.php">
+          <a class="nav-link" href="Dashboard/mybookings.php">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>My Bookings </span></a>
         </li>
@@ -132,6 +138,4 @@
         <?php } ?>
         <!-- End Business -->
       </ul>
-      <!-- Breadcrumbs -->
-        <?php include 'breadcrumbs.php'; ?>
   </div>

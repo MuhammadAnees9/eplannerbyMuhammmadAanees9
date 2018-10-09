@@ -1,3 +1,11 @@
+<?php @session_start();
+if(empty($_SESSION['users'])){ ?>
+<script type="text/javascript">
+
+    window.location = "login.php";
+</script>
+<?php } ?>
+
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
       <a class="navbar-brand mr-1" href="dashboard.php">Eplanner </a>
@@ -15,20 +23,23 @@
               <i class="fas fa-search"></i>
             </button>
           </div>
-        </div>
-      </form>
-      <!-- Navbar -->
+          <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
         <li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bell fa-fw"></i>
             <span class="badge badge-danger">9+</span>
           </a>
+
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-            <a class="dropdown-item" href="#">Pending Approval </a>
+            
+            <!-- notification -->
+            <?php include 'notification.php' ?>
+
+            <!-- <a class="dropdown-item" href="#">Pending Approval </a>
             <a class="dropdown-item" href="#">Ali ahmad booked your Hall </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">Something else here</a> -->
           </div>
         </li>
         <li class="nav-item dropdown no-arrow">
@@ -41,4 +52,6 @@
           </div>
         </li>
       </ul>
+        </div>
+      </form>
     </nav>

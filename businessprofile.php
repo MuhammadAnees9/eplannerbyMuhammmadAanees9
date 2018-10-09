@@ -1,5 +1,21 @@
 <?php 
 session_start();
+
+if (isset($_POST['update']))
+{
+  include "conn.php";
+  $bname = $_POST['bname'];
+  $bcontact = $_POST['bcontact'];
+  $bemail = $_POST['bemail'];
+  $bpassword = $_POST['bpassword'];
+  $id = $_SESSION['users']['id'];
+
+  $update = mysqli_query($conn, "UPDATE `users` SET fullName =  '$bname', contact = '$bcontact', email = '$bemail', password = '$bpassword' WHERE id = '$id'");
+  if($update)
+    header("location:logout.php");
+  else
+    die(mysqli_error($con));
+}
 ?>
 
 <!DOCTYPE html>
@@ -77,40 +93,59 @@ session_start();
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <!-- logoutmodel -->
+    <?php include 'logoutmodel.php'; ?>
           </div>
         </li>
       </ul>
         <div id="content-wrapper">
         <div class="container-fluid">
         <div class="card card-login mx-auto mt-5">
-        <div class="card-header"><h5 style="text-align: center;">Business Owner</h5></div>
+        <div class="card-header"><h5 style="text-align: center;">My Profile</h5></div>
         <div class="card-body">
-          <form>
+          <form method="POST" action="businessprofile.php">
+
+            <?php 
+              if(!empty($_SESSION['msg'])){
+            ?>
+            <div class="alert alert-success" id="msg">
+              <p><?php echo $_SESSION['msg'];
+              unset($_SESSION['msg']); ?></p>
+            </div>
+            <?php } ?>
+
             <div class="form-group">
               <h5>Name:</h5>
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+                <!-- <input type="text" id="inputName" class="form-control" placeholder="Name" name="bname" autofocus="autofocus" value="<?php echo $name;?>"> -->
+                <input type="text" class="form-control" name="bname" value="<?php echo $_SESSION['users']['fullName'] ?>" />
+
                 <label for="inputEmail">Name</label>
               </div>
             </div>
             <div class="form-group">
               <h5>Conatc:</h5>
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+                <!-- <input type="text" id="inputNumber" class="form-control" placeholder="Contact" name="bcontact" autofocus="autofocus" value="<?php echo $contact;?>"> -->
+                <input type="text" class="form-control" name="bcontact" value="<?php echo $_SESSION['users']['contact'] ?>" />
+
                 <label for="inputEmail">Contact</label>
               </div>
             </div>
             <div class="form-group">
               <h5>Email:</h5>
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
-                <label for="inputEmail">Email address</label>
+               <!--  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="bemail" autofocus="autofocus" value="<?php echo $email;?>"> -->
+                <input type="email" class="form-control" name="bemail" value="<?php echo $_SESSION['users']['email'] ?>" 
+                                <label for="inputEmail">Email address</label>
               </div>
             </div>
             <div class="form-group">
               <h5>Password:</h5>
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
+                <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="bpassword" autofocus="autofocus" value="<?php echo $password;?>"> -->
+                 <input type="text" class="form-control" name="password" value="<?php echo $_SESSION['users']['password'] ?>" />
+
                 <label for="inputPassword">Password</label>
               </div>
             </div>
@@ -122,12 +157,15 @@ session_start();
                 </label>
               </div>
             </div>
-            <a class="btn btn-primary btn-block">Update</a>
+            <div class="row">
+              <div class="col-md-12">
+             <button type="submit" class="btn btn-warning btn-block" name="update">Update</button>
+            </div>
+            </div>
           </form>
         </div>
       </div><br>
         <!-- stickyfooter.php -->
-        <?php include 'stickyfooter.php'; ?>
 
       </div>
       <!-- /.content-wrapper -->
@@ -139,8 +177,6 @@ session_start();
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fas fa-angle-up"></i>
     </a>
-    <!-- logoutmodel -->
-    <?php include 'logoutmodel.php'; ?>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

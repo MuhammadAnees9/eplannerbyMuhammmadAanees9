@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // get values from the form
 function getPosts()
 {
@@ -21,7 +21,7 @@ if(isset($_POST['search']))
   include 'conn.php';
   $id = $_POST['id'];
  
-  $query ="SELECT `id`, `bname`, `city`, `area`, `location`, `opendays`, `services`, `bcharges`, `bcontact` FROM `business` WHERE `id` = $id";
+  $query ="SELECT `id`, `bname`, `bcity`, `barea`, `blocation`, `openDays`, `bstatus`, `bookingFee`, `bcontact` FROM `business` WHERE `id` = $id";
 
   $result = mysqli_query($conn, $query);
 
@@ -34,12 +34,12 @@ if(isset($_POST['search']))
 
     $id = $row['id'];
     $bname = $row['bname'];
-    $city = $row['city'];
-    $area = $row['area'];
-    $location = $row['location'];
-    $opendays = $row['opendays'];
-    $services = $row['services'];
-    $bcharges = $row['bcharges'];
+    $city = $row['bcity'];
+    $area = $row['barea'];
+    $location = $row['blocation'];
+    $opendays = $row['openDays'];
+    $services = $row['bstatus'];
+    $bcharges = $row['bookingFee'];
     $bcontact = $row['bcontact'];
   }
 }
@@ -72,7 +72,39 @@ $bcharges = "";
 $bcontact = "";
 
 }
+// //Update Data
 
+// if(isset($_POST['update']))
+// { 
+//     include ('conn.php');
+//     $data = getPosts();
+//     if(empty($data[0]) || empty($data[1]) || empty($data[2]) || empty($data[3]) || empty($data[3]) || empty($data[4]) || empty($data[5]) || empty($data[6]) || empty($data[7]))
+//     {
+//         echo 'Enter The User Data To Update';
+//     }  else {
+        
+//       $updateStatement = $conn->prepare('UPDATE business SET bname = :bname, bcity = :bcity, barea = :barea, blocation = :blocation, openDays = :openDays, bstatus = :bstatus, bookingFee = :bookingFee, bcontact =: bcontact WHERE id = :id');
+        
+//     $updateStatement->execute(array(
+//     $posts = array();
+//     $posts[0] = $_POST['id'];
+//     $posts[1] = $_POST['bname'];
+//     $posts[2] = $_POST['bcity'];
+//     $posts[3] = $_POST['blocation'];
+//     $posts[4] = $_POST['openDays'];
+//     $posts[5] = $_POST['bstatus'];
+//     $posts[6] = $_POST['bookingFee'];
+//     $posts[7] = $_POST['bcontact'];
+//     return $posts;
+//         ));
+        
+//         if($updateStmt)
+//         {
+//                 echo 'Data Updated';
+//         }
+        
+//     }
+// }
 // Delete
 if(isset($_POST['delete']))
 {
@@ -115,7 +147,7 @@ if(isset($_POST['delete']))
   </head>
   <body class="bg-dark">
     <div class="container">
-      <div class="card card-register mx-auto mt-5">
+      <div class="bg-secondary card-register mx-auto mt-5">
         <div class="card-header">Update and Delete</div>
         <div class="card-body">
           <form method="POST" action="updatebusiness.php">

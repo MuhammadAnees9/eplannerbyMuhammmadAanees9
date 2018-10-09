@@ -9,7 +9,6 @@ if(isset($_POST['login']))
 	if(mysqli_num_rows($chek)>0)
 	{
 		$allData = mysqli_fetch_assoc($chek);
-		$_SESSION['is_login'] = true;
 		$_SESSION['users'] = $allData;
 		header("location:dashboard.php");
 	}
