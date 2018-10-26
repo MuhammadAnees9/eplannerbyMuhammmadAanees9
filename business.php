@@ -1,16 +1,13 @@
 <?php include 'header.php'; ?>
+
+
 <style type="text/css">
   .fa {
     line-height: 2;
   }
 </style>
     <div class="page-container">
-      
-​
       <div class="page-content">
-        
-    
-         
         <ul class="breadcrumb">
           <li><a href="#">Home</a></li>          
           <li class="active">Dashboard</li>
@@ -44,17 +41,13 @@
                       </div>     
                     </div>
                   </div>
-                  
-​
-​
                   <div class="form-group">        
                     <label class="col-md-3 col-xs-12 control-label">City</label>
                     <div class="col-md-6 col-xs-12">
                       <div class="input-group">
                         <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
                         <input type="text" class="form-control" name="bcity" />
-                      </div>      
-                      
+                      </div>
                     </div>
                   </div>
                   <div class="form-group">        
@@ -63,22 +56,18 @@
                       <div class="input-group">
                         <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
                         <input type="text" class="form-control" name="barea" />
-                      </div>      
-                      
+                      </div>
                     </div>
                   </div>
-​
                   <div class="form-group">        
                     <label class="col-md-3 col-xs-12 control-label">Location</label>
                     <div class="col-md-6 col-xs-12">
                       <div class="input-group">
                         <span class="input-group-addon"><span class="fa fa-map-marker"></span></span>
                         <input type="text" class="form-control" name="blocation" />
-                      </div>      
-                      
+                      </div>
                     </div>
                   </div>
-​
                   <div class="form-group">        
                     <label class="col-md-3 col-xs-12 control-label">Open Days</label>
                     <div class="col-md-6 col-xs-12">
@@ -94,11 +83,9 @@
                           </option>
                           <option>Saturday Sunday OFF</option>
                         </select>
-                      </div>      
-                      
+                      </div>
                     </div>
                   </div>
-                  
                   <div class="form-group">
                     <label class="col-md-3 col-xs-12 control-label">Services</label>
                     <div class="col-md-6 col-xs-12">      
@@ -136,26 +123,20 @@
                       <!--span class="help-block">Input type file</span-->
                     </div>
                   </div>
-                  
-                  
-​
                 </div>
                 <div class="panel-footer">
-                  <!--button class="btn btn-default">Clear Form</button-->                  
+                  <!--button class="btn btn-default">Clear Form</button-->
                   <button class="btn btn-primary pull-right" type="submit" name="addBusiness">Submit</button>
                 </div>
               </div>
               </form>
-              
             </div>
           </div>
-​
         </div>                
       </div>      
     </div>
-<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
+    <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
     <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
-    
     <script type="text/javascript" src="js/plugins/bootstrap/bootstrap-datepicker.js"></script>        
     <script type="text/javascript" src="js/plugins/bootstrap/bootstrap-file-input.js"></script>
     <script type="text/javascript" src="js/plugins/bootstrap/bootstrap-select.js"></script>

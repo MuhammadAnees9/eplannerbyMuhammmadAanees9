@@ -1,6 +1,5 @@
-<?php
-session_start();
-?>
+<!-- Header.php -->
+<?php include 'header.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,69 +26,12 @@ session_start();
     <link href="css/sb-admin.css" rel="stylesheet">
   </head>
   <body id="page-top">
-    <!-- Header.php -->
-    <?php include 'header.php'; ?>
     <!-- /End Header.php -->
 
    <div id="wrapper">
       <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
-        
-      <!-- Business -->
-        <li class="nav-item active">
-          <a class="nav-link" href="dashboard.php">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-          <a class="nav-link" href="">
-            <h5>Business:- </h5></a>
-        <li class="nav-item">
-          <a class="nav-link" href="businessprofile.php">
-            <i class="fas fa-user-circle fa-fw"></i>
-            <span>My Profile </span></a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="createbusiness.php">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Add Business </span></a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="mybusiness.php">
-            <i class="fas fa-fw fa-table"></i>
-            <span>My Business </span></a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Booking Schedule </span></a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="createoffers.php">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Create Offers </span></a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="myoffers.php">
-            <i class="fas fa-fw fa-table"></i>
-            <span>My Offers </span></a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="">
-            <i class="fas fa-fw fa-table"></i>
-            <span>View My Clients </span></a>
-        </li>
-         <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>Logout
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
-        </li>
-        <!-- End Business -->
-      </ul>
+      <?php include 'sidebar.php'; ?>
+      
 <div class="container">
     <h2 style="text-align: center;">My Offers</h2><br> 
 <table class="table table-bordered">

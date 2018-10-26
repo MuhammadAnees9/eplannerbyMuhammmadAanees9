@@ -1,5 +1,4 @@
-<?php 
-session_start();
+<?php
 
 if (isset($_POST['update']))
 {
@@ -12,8 +11,14 @@ if (isset($_POST['update']))
   $id = $_SESSION['users']['id'];
 
   $update = mysqli_query($conn, "UPDATE `users` SET fullName =  '$bname', contact = '$bcontact', email = '$bemail', password = '$bpassword' WHERE id = '$id'");
+  if($update)
+    header("location:logout.php");
+  else
+    die(mysqli_error($conn));
 }
 ?>
+<!-- Header.php -->
+<?php include 'header.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,46 +39,9 @@ if (isset($_POST['update']))
     <link href="css/sb-admin.css" rel="stylesheet">
   </head>
   <body id="page-top">
-    <!-- Header.php -->
-    <?php include 'header.php'; ?>
-<div id="wrapper">
+    <div id="wrapper">
       <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
-
-        <!-- User -->
-        <li class="nav-item active">
-          <a class="nav-link" href="dashboard.php">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-        </li>
-          <a class="nav-link" href="">
-            <h5>User:- </h5></a>
-        <li class="nav-item">
-          <a class="nav-link" href="userprofile.php">
-            <i class="fas fa-user-circle fa-fw"></i>
-            <span>My Profile </span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="mybookings.php">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>My Bookings </span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">
-            <i class="fas fa-fw fa-table"></i>
-            <span>New Offers </span></a>
-        </li>
-        <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>Logout
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
-        </li>
-      <!-- End User -->
-      </ul>
+      <?php include 'sidebar.php'; ?>
             
         <div id="content-wrapper">
         <div class="container-fluid">
@@ -97,7 +65,7 @@ if (isset($_POST['update']))
                 <!-- <input type="name" id="inputName" class="form-control" placeholder="Name"autofocus="autofocus" value="<?php echo $name;?>">
                 <label for="inputName">Name</label> -->
 
-                <input type="text" class="form-control" name="bname" value="<?php echo $_SESSION['users']['fullName'] ?>" />
+                <input type="text" class="form-control" name="bname" value="<?php echo $_SESSION['user']['fullName'] ?>" />
                 <label for="inputName">Name</label>
               </div>
             </div>
@@ -106,7 +74,7 @@ if (isset($_POST['update']))
               <div class="form-label-group">
                <!--  <input type="Contact" id="inputContact" class="form-control" placeholder="Contact" autofocus="autofocus" value="<?php echo $contact;?>"> -->
 
-               <input type="text" class="form-control" name="bcontact" value="<?php echo $_SESSION['users']['contact'] ?>" />
+               <input type="text" class="form-control" name="bcontact" value="<?php echo $_SESSION['user']['contact'] ?>" />
 
                 <label for="inputContact">Contact</label>
               </div>
@@ -116,7 +84,7 @@ if (isset($_POST['update']))
               <div class="form-label-group">
                 <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address" autofocus="autofocus" value="<?php echo $email;?>"> -->
 
-                <input type="email" class="form-control" name="bemail" value="<?php echo $_SESSION['users']['email'] ?>" />
+                <input type="email" class="form-control" name="bemail" value="<?php echo $_SESSION['user']['email'] ?>" />
 
                 <label for="inputEmail">Email address</label>
               </div>
@@ -126,7 +94,7 @@ if (isset($_POST['update']))
               <div class="form-label-group">
                 <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" value="<?php echo $password;?>"> -->
 
-                <input type="text" class="form-control" name="bpassword" value="<?php echo $_SESSION['users']['password'] ?>" />
+                <input type="text" class="form-control" name="bpassword" value="<?php echo $_SESSION['user']['password'] ?>" />
                 <label for="inputPassword">Password</label>
               </div>
             </div>
@@ -146,9 +114,6 @@ if (isset($_POST['update']))
           </form>
         </div>
       </div><br>
-        <!-- stickyfooter.php -->
-    <?php include 'stickyfooter.php'; ?>
-
       </div>
       <!-- /.container-fluid -->
       </div>

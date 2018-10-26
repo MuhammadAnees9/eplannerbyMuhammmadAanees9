@@ -1,6 +1,5 @@
-<?php 
-session_start();
-?>
+<!-- Header.php -->
+<?php include 'header.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title> Welcome || Index </title>
+    <title> Welcome || Index Event Management System </title>
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template-->
@@ -21,14 +20,10 @@ session_start();
     <link href="css/sb-admin.css" rel="stylesheet">
   </head>
   <body id="page-top">
-    <!-- Header.php -->
-    <?php include 'header.php'; ?>
     <!-- sidebar.php -->
     <?php include 'sidebar.php'; ?>
     <!-- logoutmodel -->
     <?php include 'logoutmodel.php'; ?>
-    <!-- stickyfooter.php -->
-    <?php include 'stickyfooter.php'; ?>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -34,8 +34,6 @@ session_start();
     <?php include 'header.php'; ?>
      <!-- logoutmodel -->
     <?php include 'logoutmodel.php'; ?>
-    <!-- stickyfooter.php -->
-    <?php include 'stickyfooter.php'; ?>
     <!-- Bootstrap core JavaScript-->
 
     <div id="wrapper">
@@ -56,7 +54,7 @@ session_start();
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Login Screens:</h6>
             <a class="dropdown-item" href="login.php">Login</a>
-            <a class="dropdown-item" href="register.php">Register</a>
+            <a class="dropdown-item" href="Signup.php">Register</a>
             <a class="dropdown-item" href="forgot-password.php">Forgot Password</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header">Other Pages:</h6>
@@ -65,12 +63,12 @@ session_start();
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="Dashboard/charts-other.html">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="Dashboard/table-datatables.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
         </li>

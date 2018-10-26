@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 if (isset($_POST['update']))
@@ -14,7 +14,7 @@ if (isset($_POST['update']))
   if($update)
     header("location:logout.php");
   else
-    die(mysqli_error($con));
+    die(mysqli_error($conn));
 }
 ?>
 
@@ -42,68 +42,13 @@ if (isset($_POST['update']))
 
     <div id="wrapper">
       <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="dashboard.php">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-          <a class="nav-link" href="">
-            <h5>Business:- </h5></a>
-        <li class="nav-item">
-          <a class="nav-link" href="businessprofile.php">
-            <i class="fas fa-user-circle fa-fw"></i>
-            <span>My Profile </span></a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="createbusiness.php">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Add Business </span></a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="mybusiness.php">
-            <i class="fas fa-fw fa-table"></i>
-            <span>My Business </span></a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Booking Schedule </span></a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="createoffers.php">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Create Offers </span></a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="">
-            <i class="fas fa-fw fa-table"></i>
-            <span>My Offers </span></a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="">
-            <i class="fas fa-fw fa-table"></i>
-            <span>View My Clients </span></a>
-        </li>
-         <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>Logout
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-            <!-- logoutmodel -->
-    <?php include 'logoutmodel.php'; ?>
-          </div>
-        </li>
-      </ul>
-        <div id="content-wrapper">
+     <?php include 'sidebar.php'; ?>
+      <div id="content-wrapper">
         <div class="container-fluid">
-        <div class="card card-login mx-auto mt-5">
-        <div class="card-header"><h5 style="text-align: center;">My Profile</h5></div>
-        <div class="card-body">
-          <form method="POST" action="businessprofile.php">
+          <div class="card card-login mx-auto mt-5">
+            <div class="card-header"><h5 style="text-align: center;">My Profile</h5></div>
+            <div class="card-body">
+            <form method="POST" action="businessprofile.php">
 
             <?php 
               if(!empty($_SESSION['msg'])){
@@ -118,7 +63,7 @@ if (isset($_POST['update']))
               <h5>Name:</h5>
               <div class="form-label-group">
                 <!-- <input type="text" id="inputName" class="form-control" placeholder="Name" name="bname" autofocus="autofocus" value="<?php echo $name;?>"> -->
-                <input type="text" class="form-control" name="bname" value="<?php echo $_SESSION['users']['fullName'] ?>" />
+                <input type="text" class="form-control" name="bname" value="<?php echo $_SESSION['user']['fullName'] ?>" />
 
                 <label for="inputEmail">Name</label>
               </div>
@@ -127,7 +72,7 @@ if (isset($_POST['update']))
               <h5>Conatc:</h5>
               <div class="form-label-group">
                 <!-- <input type="text" id="inputNumber" class="form-control" placeholder="Contact" name="bcontact" autofocus="autofocus" value="<?php echo $contact;?>"> -->
-                <input type="text" class="form-control" name="bcontact" value="<?php echo $_SESSION['users']['contact'] ?>" />
+                <input type="text" class="form-control" name="bcontact" value="<?php echo $_SESSION['user']['contact'] ?>" />
 
                 <label for="inputEmail">Contact</label>
               </div>
@@ -136,15 +81,15 @@ if (isset($_POST['update']))
               <h5>Email:</h5>
               <div class="form-label-group">
                <!--  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="bemail" autofocus="autofocus" value="<?php echo $email;?>"> -->
-                <input type="email" class="form-control" name="bemail" value="<?php echo $_SESSION['users']['email'] ?>" 
-                                <label for="inputEmail">Email address</label>
+                <input type="email" class="form-control" name="bemail" value="<?php echo $_SESSION['user']['email'] ?>" />
+                <label for="inputEmail">Email address</label>
               </div>
             </div>
             <div class="form-group">
               <h5>Password:</h5>
               <div class="form-label-group">
                 <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="bpassword" autofocus="autofocus" value="<?php echo $password;?>"> -->
-                 <input type="text" class="form-control" name="password" value="<?php echo $_SESSION['users']['password'] ?>" />
+                 <input type="text" class="form-control" name="bpassword" value="<?php echo $_SESSION['user']['password'] ?>" />
 
                 <label for="inputPassword">Password</label>
               </div>

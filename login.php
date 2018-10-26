@@ -16,32 +16,27 @@
   </head>
   <body class="bg-dark">
     <div class="container">
-        
-        <div class="login-container lightmode">
-        
+        <div class="card card-login mx-auto mt-5">
+            <div class="card-header"><strong>Sign In</strong> for More Services</div>
+            <div class="login-container lightmode">
             <div class="login-box animated fadeInDown">
-                <div class="alert">
-            <p>
-
-                <?php if(!empty($_SESSION['msg'])){
-                    echo $_SESSION['msg'];
-                    unset($_SESSION['msg']);
-                } ?>
-            </p>
-        </div>
+            <div class="alert">
+           
+            </div>
                 <div class="login-logo"></div>
                 <div class="login-body">
-                    <div class="login-title"><strong>Sign In</strong> for More Services</div>
-                    <form action="../loginAction.php" class="form-horizontal" method="post">
+                    <form action="loginAction.php" class="form-horizontal" method="post">
                     
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="email" class="form-control" name="email" placeholder="Email"/>
+                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required="required" autofocus="autofocus">
+                            <!-- <input type="email" class="form-control" name="email" placeholder="Email"/> -->
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input type="password" class="form-control" name="password" placeholder="Password"/>
+                             <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required="required">
+                            <!-- <input type="password" class="form-control" name="password" placeholder="Password"/> -->
                         </div>
                     </div>
                     <div class="form-group">
@@ -49,7 +44,7 @@
                             <!--a href="#" class="btn btn-link btn-block">Forgot your password?</a-->
                         </div>
                         <div class="col-md-6">
-                            <button type="submit" name="login" class="btn btn-info btn-block">Log In</button>
+                            <button type="submit" name="login" class="btn btn-primary btn-block">Log In</button>
                         </div>
                     </div>
                     <div class="login-or">OR</div>
@@ -74,9 +69,9 @@
                         &copy; 2014 AppName
                     </div>
                     <div class="pull-right">
-                        <a href="#">About</a> |
+                        <a href="Project/about.php">About</a> |
                         <a href="#">Privacy</a> |
-                        <a href="#">Contact Us</a>
+                        <a href="Project/contact.php">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -89,6 +84,7 @@
         });
     </script>
     </div>
+</div>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -1,6 +1,6 @@
 <?php 
 session_start();
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -21,34 +21,30 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 </head>
 	<body>
-	<div class="container-fluid">
-	<nav class="navbar navbar-inverse">
+	<nav class="nav-extended" style="background-color: #424342">
   	<div class="row">
-  		<div class="col-lg-2 col-md-2 cold-sm-12">
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="index.php">Logo</a>
-	    </div>
-	    </div>
-	    <div class="col-lg-6 col-md-6 col-sm-12">
-	    <ul class="nav navbar-nav" style="float: left; ">
-	    	<li><a href="index.php">Home</a></li>
-	      	<li class="active"><a href="#">Deals</a></li>
-	      	<li><a href="category.php">Category</a></li>
-	   		<li><a href="faqs.php">FAQ</a></li>
-	      	<li><a href="about.php">About Us</a></li>
-	      	<li><a href="contact.php">Contact Us</a></li>
-	    </ul>
-	    </div>
-	    <div class="col-lg-4 col-md-4 col-lg-12">
-	    <ul class="nav navbar-nav navbar-right">
-	    	<li><a href="createbusiness.php"><span class="glyphicon glyphicon-hand-right"></span> Create Your Business</a></li>
-	      	<li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	      	<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	    </ul>
-	    </div>
+  	<div class="col-lg-12 col-md-12 cold-sm-12">
+      <div class="nav-content">
+          <ul class="nav navbar-nav">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="#">Deals</a></li>
+            <li><a href="Project/category.php">Category</a></li>
+            <li><a href="Project/faqs.php">FAQ</a></li>
+            <li><a href="Project/about.php">About us</a></li>
+            <li><a href="Project/contact.php">Contact us</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="createbusiness.php"><span class="glyphicon glyphicon-lock"></span> Create your Business</a>
+            </li>
+            <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            </li>
+            <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+            </li>
+          </ul>
+        </div>
     </div>
-	</nav>
-	</div><br>
+	</div>
+  </nav><br>
 	<div class="container">
 	<?php $bid = $_GET['bid'];
 	include 'conn.php';
@@ -75,7 +71,7 @@ session_start();
             	while($resin = mysqli_fetch_assoc($qim)){
             		
             		?>
-              <img src="<?php echo 'images/business/'.$resin['iname']; ?>" style="width: 25%; height: 25%">
+              <img src="<?php echo 'images/business/'.$resin['iname']; ?>" style="width: 25%; height: 25%;">
               <?php
               $i++;
                } ?>
@@ -97,21 +93,20 @@ $location = 'https://maps.googleapis.com/maps/api/staticmap?center='.$res['bloca
 	</div>
 	<div class="row">
 		
-		<div class="col-lg-6 col-md-6 col-sm-12">
+		<div class="col-lg-8 col-md-8 col-sm-12">
 			<ul>
 				<li class="col-lg-6 col-md-6 col-sm-12">
 					<i class="material-icons">phone</i>
 					<?php echo $res['bcontact'] ?>
-				</li>
+				</li><br>
 				<li class="col-lg-6 col-md-6 col-sm-12">
 					<a class="btn modal-trigger" href="#modal1">Book Now</a>
 				</li>
 				<li>
 					<i class="material-icons">location_on</i>
 					<?php echo $res['blocation'] ?>
-				</li>
+				</li><br>
 				<li>
-					
 					<span id="rateYo"></span>
 				</li>
 			</ul>
@@ -209,11 +204,9 @@ $(".picker__day").each(function(){
 });
 });
 </script>
-	</div>
-		<div class="container-fluid">
+	</div><br>
 		<!-- stickyfooter -->
 		<?php include 'stickyfooter.php'; ?>
-	</div><br>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
       <script type="text/javascript" src="js/all.js"></script>

@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,7 +52,7 @@ session_start();
         <li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bell fa-fw"></i>
-            <span class="badge badge-danger">9+</span>
+            <span class="badge badge-danger">new</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
             <a class="dropdown-item" href="#">Action</a>
@@ -89,11 +85,8 @@ session_start();
           </div>
         </li>
       </ul>
-
     </nav>
-
     <div id="wrapper">
-
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item">
@@ -110,7 +103,7 @@ session_start();
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Login Screens:</h6>
             <a class="dropdown-item" href="login.php">Login</a>
-            <a class="dropdown-item" href="register.php">Register</a>
+            <a class="dropdown-item" href="Signup.php">Register</a>
             <a class="dropdown-item" href="forgot-password.php">Forgot Password</a>
             <div class="dropdown-divider"></div>
             <h6 class="dropdown-header">Other Pages:</h6>
@@ -119,12 +112,12 @@ session_start();
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="Dashboard/charts-other.html">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Charts</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="Dashboard/table-datatables.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
         </li>
@@ -137,7 +130,7 @@ session_start();
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="dashboard.html">Dashboard</a>
+              <a href="dashboard.php">Dashboard</a>
             </li>
             <li class="breadcrumb-item active">Blank Page</li>
           </ol>
@@ -149,9 +142,6 @@ session_start();
 
         </div>
         <!-- /.container-fluid -->
-
-        <!-- stickyfooter.php -->
-    <?php include 'stickyfooter.php'; ?>
 
       </div>
       <!-- /.content-wrapper -->

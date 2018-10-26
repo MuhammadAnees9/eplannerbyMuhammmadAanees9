@@ -1,4 +1,6 @@
-<?php 
+<?php
+session_start();
+
 if(isset($_POST['Submit']))
 {
 	include 'conn.php';
